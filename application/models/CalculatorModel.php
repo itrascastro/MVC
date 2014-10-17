@@ -39,6 +39,11 @@ class CalculatorModel
         $this->_result = $this->_op1 - $this->_op2;
     }
 
+    public function multiply()
+    {
+        $this->_result = $this->_op1 * $this->_op2;
+    }
+
     /**
      * @return mixed
      */

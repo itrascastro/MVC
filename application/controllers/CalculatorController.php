@@ -51,4 +51,18 @@ class CalculatorController
         $result = $model->getResult();
         require 'application/views/result.phtml';
     }
+
+    public function multiplyAction()
+    {
+        $action = 'doMultiply';
+        require 'application/views/form.phtml';
+    }
+
+    public function doMultiplyAction()
+    {
+        $model = new CalculatorModel($_POST['op1'], $_POST['op2']);
+        $model->multiply();
+        $result = $model->getResult();
+        require 'application/views/result.phtml';
+    }
 } 
