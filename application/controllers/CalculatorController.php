@@ -16,14 +16,22 @@
 
 namespace controllers;
 
+
 use models\CalculatorModel;
 
-require 'application/models/CalculatorModel.php';
-
-
-
-class CalculatorController 
+class CalculatorController
 {
+    /**
+     * @var CalculatorModel
+     */
+    private $model;
+
+    function __construct(CalculatorModel $model)
+    {
+        $this->model = $model;
+    }
+
+
     public function sumAction()
     {
         $action = 'doSum';
@@ -32,9 +40,10 @@ class CalculatorController
 
     public function doSumAction()
     {
-        $model = new CalculatorModel($_POST['op1'], $_POST['op2']);
-        $model->sum();
-        $result = $model->getResult();
+        $this->model->setOp1($_POST['op1']);
+        $this->model->setOp2($_POST['op2']);
+        $this->model->sum();
+        $result = $this->model->getResult();
         require 'application/views/result.phtml';
     }
 
@@ -46,9 +55,10 @@ class CalculatorController
 
     public function doSubtractAction()
     {
-        $model = new CalculatorModel($_POST['op1'], $_POST['op2']);
-        $model->subtract();
-        $result = $model->getResult();
+        $this->model->setOp1($_POST['op1']);
+        $this->model->setOp2($_POST['op2']);
+        $this->model->subtract();
+        $result = $this->model->getResult();
         require 'application/views/result.phtml';
     }
 
@@ -60,9 +70,25 @@ class CalculatorController
 
     public function doMultiplyAction()
     {
-        $model = new CalculatorModel($_POST['op1'], $_POST['op2']);
-        $model->multiply();
-        $result = $model->getResult();
+        $this->model->setOp1($_POST['op1']);
+        $this->model->setOp2($_POST['op2']);
+        $this->model->multiply();
+        $result = $this->model->getResult();
+        require 'application/views/result.phtml';
+    }
+
+    public function divideAction()
+    {
+        $action = 'doDivide';
+        require 'application/views/form.phtml';
+    }
+
+    public function doDivideAction()
+    {
+        $this->model->setOp1($_POST['op1']);
+        $this->model->setOp2($_POST['op2']);
+        $this->model->divide();
+        $result = $this->model->getResult();
         require 'application/views/result.phtml';
     }
 } 
