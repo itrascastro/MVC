@@ -19,65 +19,29 @@ namespace models;
 
 class CalculatorModel 
 {
-    private $op1;
-    private $op2;
-    private $result;
+    private $_op1;
+    private $_op2;
+    private $_result;
 
-    public function __construct()
+    public function __construct($_op1, $_op2)
     {
-        $this->result = 0;
+        $this->_op1 = $_op1;
+        $this->_op2 = $_op2;
     }
 
     public function sum()
     {
-        $this->result = $this->op1 + $this->op2;
+        $this->_result = $this->_op1 + $this->_op2;
     }
 
     public function subtract()
     {
-        $this->result = $this->op1 - $this->op2;
+        $this->_result = $this->_op1 - $this->_op2;
     }
 
     public function multiply()
     {
-        $this->result = $this->op1 * $this->op2;
-    }
-
-    public function divide()
-    {
-        $this->result = (int) ($this->op1 / $this->op2);
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getOp1()
-    {
-        return $this->op1;
-    }
-
-    /**
-     * @param mixed $op1
-     */
-    public function setOp1($op1)
-    {
-        $this->op1 = $op1;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getOp2()
-    {
-        return $this->op2;
-    }
-
-    /**
-     * @param mixed $op2
-     */
-    public function setOp2($op2)
-    {
-        $this->op2 = $op2;
+        $this->_result = $this->_op1 * $this->_op2;
     }
 
     /**
@@ -85,6 +49,7 @@ class CalculatorModel
      */
     public function getResult()
     {
-        return $this->result;
+        return $this->_result;
     }
+
 }
