@@ -31,4 +31,4 @@ else
 }
 
 $controller = new $controllerName();
-$controller->$action();
+return $controller->$action();

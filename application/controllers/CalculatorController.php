@@ -27,7 +27,8 @@ class CalculatorController
     public function sumAction()
     {
         $action = 'doSum';
-        require 'application/views/form.phtml';
+
+        return require 'application/views/form.phtml';
     }
 
     public function doSumAction()
@@ -35,13 +36,15 @@ class CalculatorController
         $model = new CalculatorModel($_POST['op1'], $_POST['op2']);
         $model->sum();
         $result = $model->getResult();
-        require 'application/views/result.phtml';
+
+        return require 'application/views/result.phtml';
     }
 
     public function subtractAction()
     {
         $action = 'doSubtract';
-        require 'application/views/form.phtml';
+
+        return require 'application/views/form.phtml';
     }
 
     public function doSubtractAction()
@@ -49,13 +52,15 @@ class CalculatorController
         $model = new CalculatorModel($_POST['op1'], $_POST['op2']);
         $model->subtract();
         $result = $model->getResult();
-        require 'application/views/result.phtml';
+
+        return require 'application/views/result.phtml';
     }
 
     public function multiplyAction()
     {
         $action = 'doMultiply';
-        require 'application/views/form.phtml';
+
+        return require 'application/views/form.phtml';
     }
 
     public function doMultiplyAction()
@@ -63,6 +68,7 @@ class CalculatorController
         $model = new CalculatorModel($_POST['op1'], $_POST['op2']);
         $model->multiply();
         $result = $model->getResult();
-        require 'application/views/result.phtml';
+
+        return require 'application/views/result.phtml';
     }
 } 

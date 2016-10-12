@@ -21,6 +21,6 @@ class IndexController
 {
     public function indexAction()
     {
-        require 'application/views/index.phtml';
+        return require 'application/views/index.phtml';
     }
 } 
